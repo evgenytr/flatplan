@@ -1,0 +1,496 @@
+html,
+body {
+    background-color: #666;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-size: 11px;
+}
+
+* {font-family: "arial","sans-serif";}
+tr,td,th {padding:4px!important;}
+th {background-color: grey; color: white;}
+tr{background-color: #888888;}
+tr:nth-child(even) {background-color: #aaaaaa;}
+
+
+input[type=text],
+input[type=password] {
+    color: #222;
+    border: 1px solid #cccccc;
+    background: #ddd !important;
+    outline: none;
+    padding: 2px;
+    margin: 2px;
+    font-size: 11px;
+}
+input[type=text]:disabled,
+input[type=password]:disabled {
+    background: #aaa !important;
+}
+.inactive-overlay {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:300px;
+    height:580px;
+    z-index:999;
+    background-color: #000;
+    opacity: 0.7;
+}
+.filter {
+    overflow: hidden;
+    float:left;
+    clear:both;
+    width: 100%;
+    height: 22px;
+    padding:0;
+    margin:0;
+}
+.filter-select {
+    height: 18px;
+    font-size:10px;
+    line-height:10px;
+    margin:0;
+    padding:0;
+}
+
+.substrate-filter {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    width: 100%;
+    height: 30px;
+}
+.substrate-select {
+    margin-top: 10px;
+    width: 180px;
+    height: 20px;
+    padding: 2px;
+}
+.process-filter {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    height: 30px;
+    width: 100%;
+}
+.process-select {
+    margin-top: 10px;
+    width: 180px;
+    height: 20px;
+    padding: 2px;
+}
+.color-type-filter {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    height: 30px;
+    width: 100%;
+}
+.color-type-select {
+    margin-top: 10px;
+    width: 180px;
+    height: 20px;
+    padding: 2px;
+}
+.substrate-filter p,
+.process-filter p,
+.color-type-filter p,
+.filter p {
+    color: #eee;
+    font-size: 12px;
+}
+.filter p 
+{
+    padding:0;
+    margin:0;
+}
+.color-swatch {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin: 0 4px 0 0;
+}
+.brand-icon {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin: 0 4px 0 0;
+    background-color: green;
+    background-image: url(images/iconBrandPreview.png);
+}
+.clickable-icon {
+    display: inline-block;
+}
+.design-icon {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin: 0 4px 0 0;
+    background-color: yellow;
+    background-image: url('images/iconDesign.png');
+}
+.doc-cmyk-checkbox {
+    position: absolute;
+    width: 280px;
+    height: 20px;
+    bottom: 230px;
+    left: 10px;
+    z-index: 1;
+}
+.use-print-order-checkbox {
+    position: absolute;
+    width: 280px;
+    height: 20px;
+    bottom: 230px;
+    left: 10px;
+    z-index: 1;
+}
+.sync-button {
+    position: absolute;
+    right: 0px;
+}
+.connect-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 110px;
+    overflow: hidden;
+}
+.connect-bar p {
+    text-align: right;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    padding-right: 8px;
+    margin-right: 8px;
+}
+.connect-bar p.left-align {
+    text-align: left;
+    padding-left: 2px;
+}
+.connect-bar .row {
+    margin-top: 5px;
+}
+.connect-btn {
+    position: absolute;
+    right: 22px;
+    bottom: 11px;
+}
+.colibri-icon {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    bottom: 90px;
+    left:15px;
+    background-image: url(images/iconColibri.png);
+}
+.browse-view,
+.colors-view,
+.print-view {
+    width: 100%;
+    height: 100%;
+}
+.color-tree-view {
+    width: 300px;
+    height: 365px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    top: 160px;
+}
+.browse-view .color-tree-view {
+    width: 300px;
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    top: 200px;
+}
+.colors-view .color-tree-view {
+    width: 300px;
+    height: 395px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    top: 30px;
+}
+.print-view .color-tree-view {
+    width: 300px;
+    height: 325px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    top: 100px;
+}
+.color-patch {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 470px;
+}
+.color-long-swatch {
+    width: 30px;
+    height: 100px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+.color-info {
+    position: absolute;
+    height: 100px;
+    width: 260px;
+    left: 35px;
+    top: 0;
+    background-color: #444;
+}
+.color-info p {
+    padding: 2px 40px 0px 4px;
+    margin: 0;
+    color: #eee;
+}
+.btn {
+    text-transform: none;
+    height: 20px !important;
+    border-radius: 0px !important;
+    line-height: 20px !important;
+    font-size: 10px !important;
+    width: auto !important;
+    margin: 3px!important;
+    padding: 0 4px 0 4px;
+    box-shadow: none;
+}
+.material-icons {
+    font-size: 24px;
+}
+.search-bar p {
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+p.search-status {
+    position: absolute;
+    left: 9px;
+    top: 63px;
+    font-size: 10px;
+}
+.search-btn {
+    position: absolute;
+    width: 18px;
+    right: 10px;
+    height: 18px;
+    top: 37px;
+}
+.patch-button {
+    position: absolute;
+    right: 3px;
+    top: 2px;
+}
+.btn-wide {
+    text-transform: none;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.btn-wide-low {
+    text-transform: none;
+    width: 200px;
+    margin-top: 6px;
+    margin-left: 50px;
+    font-size: 12px;
+    padding: 6px 10px 6px 10px;
+    line-height: 12px;
+    height: 24px;
+}
+div.placeholder {
+    background: rgb(255, 240, 120);
+}
+div.placeholder:before {
+    content: "Drop here";
+    color: rgb(225, 210, 90);
+}
+.layer-node {
+    padding-left: 20px;
+    font-size: 13px;
+    height: 21px;
+    overflow: hidden;
+    margin: 4px 0 0 0;
+    color: #eee;
+    z-index: 0;
+    position: relative;
+}
+.layerset-node {
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 13px;
+    margin: 0;
+    color: #eee;
+}
+.layerset-node-name {
+    overflow: hidden;
+    margin: 4px 0 0 0;
+    display: inline-block;
+}
+.layerset-node-children {
+    padding-left: 10px;
+}
+.selected {
+    background-color: #ccc;
+    color: #111;
+}
+.standards-list {
+    background-color: #333;
+    height: 70px;
+    width: 260px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.standards-list.layerset-node {
+    font-size: 11px;
+}
+.standards-list .selected {
+    background-color: #ccc;
+    color: #111;
+}
+.layerset-node .material-icons,
+.layer-node .material-icons {
+    font-size: 14px!important;
+    padding: 0 5px 0 0!important;
+    margin: 4px 0 0 0!important;
+}
+.bg-black {
+    background-color: #000;
+    min-height: 100%;
+    width: 100%;
+}
+.bullet {
+    border-radius: 7px;
+    padding: 4px 7px 2px;
+    margin-left: 10px;
+    min-width: 20px;
+}
+.hand-cursor {
+    cursor: pointer;
+}
+/*navigation"*/
+
+.navigation {
+    width: 300px;
+    color: #fff;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    z-index: 1;
+}
+.navigation a {
+    color: #f3f3f3;
+}
+.navigation a:hover {
+    color: #fff;
+}
+.block-docs {
+    background-color: #26a69a;
+    height: 30px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+.block-docs a {
+    height: 100%;
+    width: 100px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+.block-docs a.active {
+    background-color: #80cbc4;
+}
+.block-docs .bullet {
+    color: #9acc65;
+    background-color: #fff;
+    font-size: 11px;
+    /*margin-right: 20px;*/
+}
+.block-form {
+    color: #fff;
+    width: 350px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+.block-form .row .col {
+    padding-right: 0;
+}
+.block-form .row {
+    margin-bottom: 0;
+}
+.block-button {
+    text-align: center;
+}
+/*CHANGE COLORS IN FORM*/
+/* label color */
+
+.input-field label {
+    color: #bab9b9;
+}
+/* label focus color */
+
+.input-field input[type=text]:focus + label {
+    color: #99D164;
+}
+/* label underline focus color */
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #99D164;
+    box-shadow: 0 1px 0 0 #99D164;
+}
+/* label focus color */
+
+.input-field input[type=password]:focus + label {
+    color: #99D164;
+}
+/* label underline focus color */
+
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #99D164;
+    box-shadow: 0 1px 0 0 #99D164;
+}
+
+.logArea
+{
+    height: 200px;
+}
+
+#listTree
+{
+    height:300px;
+    overflow:auto;
+    max-height:300px;
+}
+
+#pubTree
+{
+    height:300px;
+    overflow:auto;
+    max-height:300px;
+}
